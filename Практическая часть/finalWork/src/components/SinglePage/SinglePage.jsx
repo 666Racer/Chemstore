@@ -2,7 +2,7 @@ import Slider from "./Elements/Slider";
 import Info from "./Elements/Info";
 import Suggestions from "./Elements/Suggestions";
 
-const SinglePage = () => {
+const Page = () => {
   return (
     <div>
       <Slider />

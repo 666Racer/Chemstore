@@ -67,7 +67,6 @@
         padding-bottom: 43px;
     }
     &__settings {
-        // width: 537px;
         display: flex;
         gap: 53px;
         justify-content: center;
@@ -88,11 +87,11 @@
         &:hover {
             background-color: $colorSelectSite;
             color: white;
-            // transition: filter 0.3s ease;
+            transition: filter 0.3s ease;
         }
         &:hover .product-info__button__logo {
             filter: brightness(0) invert(1);
-            // transition: filter 0.3s ease;
+            transition: filter 0.3s ease;
         }
         & img {
             margin-right: 15px;
@@ -127,7 +126,6 @@ svg:hover path {
         }
     }
     &__text {
-        font-family: 'latoblack';
         line-height: 26px;
         color: #6f6e6e;
         border: none;
@@ -159,7 +157,6 @@ svg:hover path {
     height: 35px;
     border: 1px solid #e6e6e6;
     border-left: none;
-    font-family: 'latoblack';
     font-size: 14px;
     line-height: 32px;
     letter-spacing: 0.025em;

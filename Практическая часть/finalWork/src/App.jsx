@@ -20,7 +20,6 @@ function App() {
           <Route path='/products' element={<Products  />} />
           <Route path='/shopping_card' element={<ShoppingCard/>} />
           <Route path='/checkout' element={<Checkout />} />
-          {/* <Route path='/single' element={<SinglePage />} /> */}
         </Routes>
         <Footer />
       </Router> 

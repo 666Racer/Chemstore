@@ -29,8 +29,6 @@ body {
     margin: 0 auto;
     padding-left: calc(50% - $widthSite/2);
     padding-right: calc(50% - $widthSite/2);
-    // padding-left: 100px;
-    // padding-right: 100px;
 }
 
 .logo {
@@ -330,7 +328,6 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        // border: 1px solid #ececec;
         margin: 0 auto;
     }
     &__links {
@@ -499,7 +496,6 @@ body {
 }
 
 .first_grid {
-    // padding-top: 46px;
     padding-bottom: 100px;
     display: grid;
     grid-template-columns: 560px 560px;
@@ -597,30 +593,6 @@ body {
     width: $containerWidth;
     margin-bottom: 78px;
     max-width: 1140px;
-    //На инлайн-блоках почему-то нет gap между товарами - слипаются друг с другом в левой части
-    // &__content {
-    //     margin: 0 auto;
-    //     display: inline-block;
-    //     text-align: justify;
-    //     &:after {
-    //         content: "";
-    //         display: inline-block;
-    //         width: 100%;
-    //     }
-    //     &__item {
-    //         display: inline-block;
-    //         width: 261px;
-    //         height: 364px;
-    //         margin-bottom: 59px;
-    //         position: relative;
-    //         vertical-align: middle;
-    //         &:hover {
-    //             @include hoverForSecondGrid();
-    //         }
-    //         &:nth-child(-n+4) {
-    //             margin-bottom: 91px;
-    //         }
-    //     }
         &__content {
             margin: 0 auto;
             display: flex;
@@ -844,7 +816,6 @@ body {
 .about {
     background-image: url('./img/about-bg.jpg');
     max-width: $widthSite;
-    // height: 754px;
     margin-bottom: 100px;
     &__text{
         padding-top: 200px;
@@ -889,7 +860,6 @@ body {
 
 .contacts {
     &__title {
-        // font-family: 'Noto Sans', sans-serif;
         text-transform: uppercase;
         font-size: 24px;
         line-height: 26px;
@@ -986,7 +956,7 @@ body {
     }
     &__scroll-info {
         height: 180px;
-        // overflow: scroll; //отображение полосы прокрутки
+         overflow: scroll; //отображение полосы прокрутки
         margin-top: 29px;
     }
     &__nav {

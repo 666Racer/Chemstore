@@ -16,9 +16,7 @@ const ProductCard = ({ id, img, title, synonyms, category, CAS, cardLink, price,
     return (
                 <div className="product__cards__content__item">
                     <div className="cards__block" key={id}>
-                        {/* <Link className="card__link" to={'/products/'+product.id}> */}
                         <Link className="card__link" to={`/products/${product.id}`}>
-                        {/* <a className="card__link" href={cardLink}> */}
                             <img className="card__img" src={img} alt="product"/>
                             <p className="card__name">{title}</p>
                             <div className="card__block">
@@ -27,7 +25,6 @@ const ProductCard = ({ id, img, title, synonyms, category, CAS, cardLink, price,
                                 <p className="card__category">{category}</p>
                                 <p className="card__CAS">{CAS}</p>
                             </div>   
-                        {/* </a> */}
                         </Link>
                         <div className="add__box">
                             <a id={id} className="add__link" href='#' onClick={handleAddToBasket}>

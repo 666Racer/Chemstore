@@ -22,10 +22,6 @@ const BasketInHeader = ({id, img, title, cardLink, price}) => {
                                     className="quantity-info"> x </span>
                                     ${price}
                             </p>
-                            {/* <div class="total-sum ">
-                                <p class="total-text ">TOTAL</p>
-                                <p class="total-text ">${price * quantity + shipping}</p>
-                            </div> */}
                         </div>
                         <form>
                             <button id={id} className="purchase__cancel" onClick={handleDelete}>

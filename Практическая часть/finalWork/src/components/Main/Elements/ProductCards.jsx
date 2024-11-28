@@ -1,5 +1,7 @@
 import { useDispatch} from "react-redux";
 import { addProduct } from "../../../redux/slices/productSlice";
+import { Link } from "react-router-dom";
+import { dataCompounds } from "../../../redux/slices/productSlice";
 
 
 const ProductCards = ({ id, img, title, synonyms, category, CAS, cardLink, price, btnText }) => {
@@ -11,9 +13,11 @@ const ProductCards = ({ id, img, title, synonyms, category, CAS, cardLink, price
         dispatch(addProduct(id))
     }
 
+    const product = dataCompounds.find((p) => p.id === parseInt(id));
+
 	return (
 		<div className="second__grid__content__item" key={id}>
-            <a className="card__link" href={cardLink}>
+            <Link className="card__link" to={`/products/${product.id}`}>
                 <img className="card__img" src={img} alt="product"/>
                 <p className="card__name">{title}</p>
                 <div className="card__block">
@@ -22,7 +26,7 @@ const ProductCards = ({ id, img, title, synonyms, category, CAS, cardLink, price
                     <p className="card__category">{category}</p>
                     <p className="card__CAS">{CAS}</p>
                 </div>   
-            </a>
+            </Link>
             <div className="add__box">
                 <a id={id} className="add__link" href='#' onClick={handleAddToBasket}>
                     <svg xmlns="http://www.w3.org/2000/svg"  width="23px"

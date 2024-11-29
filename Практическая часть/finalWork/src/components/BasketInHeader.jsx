@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 import { deleteProduct } from "../redux/slices/productSlice";
+import { Link } from "react-router-dom";
+import { dataCompounds } from "../redux/slices/productSlice";
 
 const BasketInHeader = ({id, img, title, cardLink, price}) => {
     const dispatch = useDispatch();
@@ -7,10 +9,11 @@ const BasketInHeader = ({id, img, title, cardLink, price}) => {
         e.preventDefault();
         dispatch(deleteProduct(id))
     }
+    const product = dataCompounds.find((p) => p.id === parseInt(id));
     
 	return (
             <div className="" key={id}>
-                <a href={cardLink}>
+                <Link className="card__link" to={`/products/${product.id}`}>
                     <div className="purchase">
                         <div className="purchase__productImg">
                             <img className="purchase__photo"src={img} alt="purchase photo"/>
@@ -29,7 +32,7 @@ const BasketInHeader = ({id, img, title, cardLink, price}) => {
                             </button>
                         </form>                    
                     </div>
-                </a>
+                </Link>
             </div>
 	)
 }

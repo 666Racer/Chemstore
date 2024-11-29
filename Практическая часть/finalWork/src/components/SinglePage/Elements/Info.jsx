@@ -65,7 +65,7 @@ const Info = () => {
               alt="basket_icon"
               className="product-info__button__logo"
             />
-            Add to Cart
+            В корзину
           </button>
         </a>
       </div>

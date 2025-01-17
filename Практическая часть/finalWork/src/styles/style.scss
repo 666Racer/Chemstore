@@ -71,7 +71,6 @@ body {
         display: flex;
         justify-content: space-between;
         padding-top: 25px;
-        padding-bottom: 24px;
     }
 }
 
@@ -318,6 +317,27 @@ body {
     &:hover {
         border: 1px solid $colorSelectSite;
         color: $colorSelectSite;
+    }
+}
+
+// .account{
+//     margin-top: 45px;
+// }
+
+.registration{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    &__form {
+        display: flex;
+    }
+    &__input{
+        width: 150px;
+        height: 30px;
+    }
+    &__button{
+        width: 200px;
+        height: 35px;
     }
 }
 

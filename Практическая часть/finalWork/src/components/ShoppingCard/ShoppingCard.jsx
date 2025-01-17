@@ -1,11 +1,19 @@
 import ProductsInCard from "./ProductsInCard";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState,  useEffect } from "react";
+import { Link } from "react-router-dom";
+import { clearProducts } from "../../redux/slices/productSlice"; //не срабатывает
 
 const ShoppingCard = () => {
-  const products = useSelector((state) => state.product.products);
+  let products = useSelector((state) => state.product.products);
+  // const product = dataCompounds.find((p) => p.id === parseInt(id));
   const [sub, setSub] = useState(0);
   const [total, setTotal] = useState(0);
+  
+  const dispatch = useDispatch();
+  const handleClearProducts = () => {
+    dispatch(clearProducts());  // Очищаем список продуктов в Redux
+  };
 
   useEffect(() => {
     setSub(
@@ -42,9 +50,7 @@ const ShoppingCard = () => {
                 <ProductsInCard
                   key={product.id}
                   id={product.id}
-                  cardLink={product.cardLink}
                   img={product.img}
-                  addLink={product.addLink}
                   title={product.title}
                   price={product.price}
                   quantity={product.quantity}
@@ -62,15 +68,15 @@ const ShoppingCard = () => {
             }
             <div className="shopping__buttons ">
               <a href="# ">
-                <button className="shopping__button " type="reset ">
+                <button className="shopping__button " type="reset" onClick={handleClearProducts}>
                   Очистить корзину
                 </button>
               </a>
-              <a href="./product.html">
+              <Link className="card__link" to={`/products/`}>
                 <button className="shopping__button " type="button ">
                   Продолжить покупки
                 </button>
-              </a>
+              </Link>
             </div>
             <div className="shopping__information ">
               <div className="information__box ">
@@ -148,3 +154,53 @@ const ShoppingCard = () => {
 };
 
 export default ShoppingCard;
+
+/*
+const Cart = () => {
+  // Инициализация состояния корзины, загружая данные из localStorage
+  const loadCartFromLocalStorage = () => {
+    const cartData = localStorage.getItem('cart');
+    return cartData ? JSON.parse(cartData) : [];
+  };
+
+  const [cartItems, setCartItems] = useState(loadCartFromLocalStorage);
+
+  // Функция для очистки корзины
+  const clearCart = () => {
+    // Очищаем корзину в состоянии
+    setCartItems([]);
+
+    // Удаляем данные корзины из localStorage
+    localStorage.removeItem('cart');
+  };
+
+  // Синхронизация состояния корзины с localStorage при изменении cartItems
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      localStorage.removeItem('cart');  // Если корзина пуста, удаляем её из localStorage
+    } else {
+      localStorage.setItem('cart', JSON.stringify(cartItems));  // Сохраняем обновленное состояние корзины
+    }
+  }, [cartItems]);  // Этот useEffect сработает при каждом изменении состояния корзины
+
+  return (
+    <div>
+      <h1>Корзина</h1>
+      {cartItems.length === 0 ? (
+        <p>Корзина пуста</p>
+      ) : (
+        <ul>
+          {cartItems.map(item => (
+            <li key={item.id}>
+              {item.name} - {item.price}₽
+            </li>
+          ))}
+        </ul>
+      )}
+      <button onClick={clearCart}>Очистить корзину</button>
+    </div>
+  );
+};
+
+export default Cart;
+*/

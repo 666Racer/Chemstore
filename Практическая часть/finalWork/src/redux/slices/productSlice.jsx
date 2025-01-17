@@ -63,14 +63,17 @@ const productSlice = createSlice({
       const product = state.products.find(
         (item) => item.id == action.payload.id
       );
-      console.log(action.payload);
       if (product) {
         product.quantity = action.payload.value;
       }
       saveToLocalStorage(state.products);
     },
+    clearProducts: (state) => {
+      state.products = [];
+      localStorage.clear();
+    },
   },
 });
 
-export const { addProduct, deleteProduct, setQuantity } = productSlice.actions;
+export const { addProduct, deleteProduct, setQuantity, clearProducts } = productSlice.actions;
 export default productSlice.reducer;

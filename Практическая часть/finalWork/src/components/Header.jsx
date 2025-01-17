@@ -3,7 +3,37 @@ import BasketInHeader from "./BasketInHeader";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-    const products = useSelector((state) => state.product.products)
+    const products = useSelector((state) => state.product.products);
+    const [toggleRegistration, setToggleRegistration] = useState(false)
+    useEffect(() => {
+        const registrationButton = document.querySelector('.registration__button');
+        let showRegistrationForm = false;
+        const accountButton = document.querySelector('.account__button');
+        const registrationForm = document.querySelector('.registration');
+        const registrationInput = document.querySelector('.registration__form');
+        registrationForm.style.display = 'none';
+        if (registrationInput.value !== ""){ //что-то не так с trim
+            registrationButton.addEventListener('click', () => {
+                if (toggleRegistration) {
+                    setToggleRegistration(false);
+                    registrationInput.style.display = 'flex';
+                } else {
+                    setToggleRegistration(true);
+                    registrationInput.style.display = 'none';
+                }
+                console.log(toggleRegistration);
+            });
+        }
+        else alert ('Введите логин и пароль!');
+        accountButton.addEventListener('click', () => {
+            showRegistrationForm = !showRegistrationForm;
+            if (showRegistrationForm) {
+                registrationForm.style.display = 'none';
+            } else {
+                registrationForm.style.display = 'flex';
+            }
+        });
+    }, []);
 
     const [sub , setSub] = useState(0);
 
@@ -128,17 +158,28 @@ const Header = () => {
                                     </div>
                                     <div className="total-sum">
                                         <h2 className="total-text">Всего</h2>
-                                        <h2 className="total-text">${sub}</h2>
+                                        <h2 className="total-text">₽ {sub}</h2>
                                     </div>
                                     <a className="purchase__button" href="../checkout">Отправка</a>
                                     <a className="purchase__button" href="../shopping_card">Корзина</a>
                             </div>
                         </details>
-                        <button className="account__button button ">Мой профиль
-                            <i className="fa fa-caret-down fa-caret-down__my-acc-header "></i>
-                        </button>
+                            <button className="account__button button">Аккаунт
+                                <i className="fa fa-caret-down fa-caret-down__my-acc-header "></i>
+                            </button>
                     </div>
-                 </div>
+                </div>
+                <div className="registration">
+                    <form className="registration__form">
+                        <label htmlFor="username"></label>
+                        <input className="registration__input" type="text" id="username" name="username" placeholder="Имя пользователя" required/>
+                        <br></br>
+                        <label htmlFor="password"></label>
+                        <input className="registration__input" type="password" id="password" name="password" placeholder="Пароль" required/>
+                        <br></br>
+                    </form>
+                    <button className="registration__button" type="submit">{toggleRegistration ? 'Выйти из аккаунта' : 'Войти в аккаунт'}</button>
+                </div>
 
 
                 <div className="nav ">

@@ -23,7 +23,7 @@ const BasketInHeader = ({id, img, title, cardLink, price}) => {
                             <img className="rate-stars" src="../img/stars_rate.png" alt="stars rate"/>
                             <p className="quantity-info">1 <span
                                     className="quantity-info"> x </span>
-                                    ${price}
+                                    ₽ {price}
                             </p>
                         </div>
                         <form>

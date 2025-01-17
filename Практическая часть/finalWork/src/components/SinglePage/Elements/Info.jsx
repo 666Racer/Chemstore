@@ -10,14 +10,30 @@ const Info = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.products);
+  const product = dataCompounds.find((p) => p.id === parseInt(id));
   const [productQuantity, setProductQuantity] = useState(1);
+  // const [sub, setSub] = useState(0);
 
   const handleAddToBasket = (e) => {
     e.preventDefault();
     dispatch(addProduct(id))
   }
+  const handleQuantity = (e, id) => {
+    const value = parseInt(e.target.value);
+    setProductQuantity(value);
 
-  const product = dataCompounds.find((p) => p.id === parseInt(id));
+    dispatch(setQuantity({ id, value: value }));
+  };
+
+  // useEffect(() => {
+  //   setSub(
+  //     products.reduce(
+  //       (sum, product) => sum + product.quantity * product.price,
+  //       0
+  //     )
+  //   );
+  // }, [products]);
 
   return (
     <div className="product-info">
@@ -38,7 +54,7 @@ const Info = () => {
             <span className="add-info__text--bold">{product.category}</span>
           </p>
         </div>
-        <p className="product-info__price">₽ {product.price}</p>
+        <p className="product-info__price">₽ {product.price*productQuantity}</p>
         <div className="product-info__settings">
           <div className="settings">
             <p className="settings-text">КОЛИЧЕСТВО</p>
@@ -50,15 +66,17 @@ const Info = () => {
                     type="number"
                     name="quantity"
                     id="quantity"
+                    min="1"
                     value={productQuantity}
-                    onChange={(e) => setProductQuantity(e.target.value)}
+                    onChange={(e) => handleQuantity(e, id)}
+                    // onChange={(e) => setProductQuantity(e.target.value)}
                   />
                 </label>
               </form>
             </div>
           </div>
         </div>
-        <a href='#' onClick={handleAddToBasket}>
+        <a id={id} href='#' onClick={handleAddToBasket}>
           <button className="product-info__button" type="button">
             <img
               src="../img/basket_logo.png"

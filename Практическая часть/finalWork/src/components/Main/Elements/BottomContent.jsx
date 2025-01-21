@@ -46,7 +46,7 @@ const BotttomContent = () => {
                 CHEM<span className="logo-text logo-text--colored ">STORE</span>
               </p>
             </a>
-            <div className="bottom__navigation__scroll-info ">
+            <div className="bottom__navigation__info ">
               <p className="left-block__text ">
               Получаем преимущества за счет собственного научного центра и производственной лаборатории.
               В нашей работе мы объединяем расширенный анализ процессов и при этом сохраняем партнерские отношения между подразделениями.

@@ -320,10 +320,6 @@ body {
     }
 }
 
-// .account{
-//     margin-top: 45px;
-// }
-
 .registration{
     margin-bottom: 10px;
     display: flex;
@@ -967,17 +963,21 @@ body {
     }
     &__left-block {
         width: 427px;
-        margin-top: 109px;
+        margin-top: 59px;
         margin-left: 229px;
     }
     &__right-block {
         margin-left: 64px;
         margin-top: 123px;
     }
-    &__scroll-info {
+    // &__scroll-info {
+    //     height: 180px;
+    //     overflow: scroll; //отображение полосы прокрутки
+    //     margin-top: 29px;
+    // }
+    &__info {
         height: 180px;
-         overflow: scroll; //отображение полосы прокрутки
-        margin-top: 29px;
+        margin-top: 25px;
     }
     &__nav {
         display: flex;
